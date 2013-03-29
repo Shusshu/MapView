@@ -467,7 +467,6 @@ public class MapView extends ZoomPanLayout {
 		int[] position = getPosition( x, y, absolute );
 		Point point = new Point( position[0], position[1] );
 		slideToAndCenter( point );
-		this.requestRender();
 	}
 	
 	//------------------------------------------------------------------------------------
