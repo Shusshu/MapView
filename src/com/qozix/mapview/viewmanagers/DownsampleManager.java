@@ -19,17 +19,16 @@ public class DownsampleManager {
 	
 	private String lastFileName;
 	
-	// NFI why this is required - caused by if ( fileName == null )
-	@SuppressWarnings("unused")
 	public void setDownsample( View view, String fileName ) {		
-		if ( fileName != null && fileName.equals( lastFileName )) {
+		if ( fileName == null ) {
+			view.setBackgroundDrawable( null );
+			lastFileName = null;
+			return;
+		}
+		if ( fileName.equals( lastFileName )) {
 			return;
 		}		
 		lastFileName = fileName;
-		if ( fileName == null ) {
-			view.setBackgroundDrawable( null );
-			return;
-		}
 		Context context = view.getContext();
 		AssetManager assets = context.getAssets();
 		try {
